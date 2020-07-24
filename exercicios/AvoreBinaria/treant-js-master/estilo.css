@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin-top: 50px;
+    text-align: center;
+}
+
+input[type="button"] {
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+input[type="button"]:disabled {
+    background-color: gray;
+}
+
+input[type="text"] {
+    background-color: lightgray;
+    border: none;
+    color: black;
+    padding: 15px 20px;
+    width: 300px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+}
+
+div.items {
+    background-color: lightgray;
+    width: 70px;
+    padding: 15px 20px;
+    border: 2px solid white; 
+}
+
+.visualNode {
+    border: 1px solid black;
+    border-radius: 100%;
+    width: 50px;
+}
+
+.visualNodeNull {
+    background-color: lightgray;
+} 

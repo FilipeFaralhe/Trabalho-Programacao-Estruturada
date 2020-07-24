@@ -1,0 +1,255 @@
+*{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+body{
+    background-image: url("../img/backgroundFundo6.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+header {
+    background-color: rgb(12, 12, 12, 0.8);
+    padding: 30px;
+}
+
+a#home{
+    background-color:  rgba(37, 37, 37, 0.8);
+    text-align: center;
+    color: white;
+    padding: 10px;
+    font-size: 2em;
+    outline: 2px solid #fff;
+    text-decoration: none;
+}
+
+main {
+    margin: 10% 0;
+}
+
+div#central{
+    height: 50%;
+    width: 50%;
+    margin: auto;
+    background-color: rgb(232, 232, 233, 0.6);
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: -30px 30px 20px rgba(0,0,0,0.3);
+    overflow: auto;
+}
+
+#title{
+    font-size: 30px;
+}
+
+
+input[type="text"]{
+    outline: 0;
+    margin-bottom: 2%;
+    background-color: rgb(119, 118, 118);
+    border: 2px solid white;
+}
+
+div#acoes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12;
+    margin-bottom: 3%;
+}
+
+.item {
+    margin-left: 1%;
+    height: 5vh;
+    width: 9vw;
+    background-color: rgb(109, 45, 230);
+    box-shadow: -30px 30px 20px rgba(0,0,0,0.3);
+    border: none;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+
+.item span {
+    width: 35%;
+    height: 100%;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    background-color: rgb(30, 30, 31);;/*r = red, g = gree, b =  blue, a = alfa(opacidade) */
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+a#push span:after{
+    content: "";
+    background-size: cover;
+    background-image: url("../img/add.png");
+    width: 50%;
+    height: 60%;
+}
+
+a#pop span:after{
+    content: "";
+    background-size: cover;
+    background-image: url("../img/remover.png");
+    width: 50%;
+    height: 60%;
+}
+
+a#peek span:after{
+    content: "";
+    background-size: cover;
+    background-image: url("../img/ultimo.png");
+    width: 50%;
+    height: 60%;
+}
+
+a#estaVazia span:after{
+    content: "";
+    background-size: cover;
+    background-image: url("../img/vazio.png");
+    width: 50%;
+    height: 60%;
+}
+
+.item:hover{
+    background-color: rgb(12, 12, 12, 0.8);
+    transition-duration: 700ms;
+}
+
+.item strong{
+    flex: 1;
+    color: white;
+}
+
+#entrada{
+    text-align: center;
+}
+
+#fila{
+    width: 20%;
+    margin: 0 auto;
+    margin-bottom: 1%;
+    background-color: black;
+    color: white;
+}
+
+#array{
+    width: 20%;
+    margin: 0 auto;
+    margin-bottom: 1%;
+    margin-left: 2%;
+    background-color: black;
+    color: white;
+}
+
+#pilha{
+    width: 20%;
+    margin: 0 auto;
+    margin-bottom: 1%;
+}
+
+footer {
+    background-color:  rgb(12, 12, 12, 0.8);
+    width: 100%;
+    padding: 5px 0;
+}
+
+div#caixaFooter{
+    width: 380px;
+    color: white;
+    height: 4em;
+    margin: 10px auto;
+    display: flex;
+}
+
+
+a#git {
+    width: 50%;  
+    text-decoration: none;
+    display: flex;
+    align-items: flex-end;
+    color: white;
+}
+
+a#git span{
+    background-image: url("../img/github2.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 35%;
+    height: 100%;
+}
+
+a#ap {
+    width: 50%;
+    text-decoration: none;
+    display: flex;   
+    color: white;
+    align-items: flex-end;
+}
+
+a#ap span{
+    background-image: url("../img/youtube.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 40%;
+    height: 100%;
+}
+
+a#ap strong{
+    color: white;
+}
+
+a#git strong{
+    color: white;
+}
+
+@media(max-width: 768px) {
+    div#sobre {
+        width: 50vw;
+    }
+    
+    div#central {
+        width: auto;
+        margin: 0 2%;
+        padding: 0 2%;
+        height: 40vh;
+    }
+
+    .item {
+        width: 25vw;
+    }
+
+    .item span::after{
+        background: none;
+    }
+   
+    .item span{
+        width: 0;
+    }
+
+    main{
+        margin: 40% 0;
+        
+    }
+   
+    
+}
+
+
+
+@media(max-width: 1367) {
+    .item{
+        height: auto;
+        width: auto;
+    }
+   
+    
+}

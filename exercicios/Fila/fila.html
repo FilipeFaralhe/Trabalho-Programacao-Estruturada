@@ -1,0 +1,42 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicações práticas - Fila</title>
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styleExercicio.css">
+</head>
+<body>
+    
+    <header>
+            <a href="../../index.html" id="home">Home</a>
+    </header>
+    <main>
+        <div id ="central">
+            <p id="title">Aplicações práticas de Filas</p>
+            <p id="avisos"></p>
+            <p>
+                <input type="text" id="entrada">
+            </p>
+            <div id="acoes">
+                <a class="item" extra="onkeypress=enter(event)" onclick="addButton()" value="add" id="push"><span></span><strong>Adicionar</strong></a>
+                <a class="item" onclick="removeButton()" value="remove" id="pop"><span></span><strong>Remover</strong></a>
+                <a class="item" value="vizualizar" onclick="ultimo()" id="peek"><span></span><strong>Ultimo</strong></a>
+                <a class="item" value="vazia" onclick="estaVazia()" id="EstaVazia"><span></span><strong>Esta Vazia?</strong></a>  
+            </div>
+            <p id="resposta"></p>
+        </div>  
+    </main>
+    <footer>
+        <div id="caixaFooter">
+            <a id="git" href="https://github.com/FilipeFaralhe" target="_blank"><span></span><strong>Github</strong></a>
+            <a id="ap" href="#"><span></span><strong>Apresentação</strong></a>
+        </div>
+    </footer>    
+    <script src="filaJs.js"></script>
+</body>
+</html>
+
+
+
+   
