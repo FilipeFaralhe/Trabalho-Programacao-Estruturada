@@ -14,6 +14,7 @@ body{
 header {
     background-color: rgb(12, 12, 12, 0.8);
     padding: 30px;
+    width: 100%;
 }
 
 a#home{
@@ -73,6 +74,7 @@ div#acoes{
     font-weight: 700;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 

@@ -292,22 +292,6 @@ class BinarySearchTree {
 }
 
 const tree = new BinarySearchTree()
-// tree.inserirAll(3);
-// tree.inserirAll(4);
-// tree.inserirAll(5);
-// tree.inserirAll(6);
-// tree.inserirAll(7);
-// tree.inserirAll(10);
-// tree.inserirAll(11);
-// tree.inserirAll(13);
-// tree.inserirAll(15);
-// tree.inserirAll(4);
-// tree.inserirAll(2);
-// tree.inserirAll(1);
-// tree.inserirAll(3);
-// tree.inserirAll(5);
-// tree.inserirAll(6);
-// tree.inserirAll(7);
 tree.print();
 
 
