@@ -201,7 +201,7 @@ a#ap span{
     background-image: url("../img/youtube.svg");
     background-size: cover;
     background-repeat: no-repeat;
-    width: 40%;
+    width: 35%;
     height: 100%;
 }
 
@@ -238,7 +238,7 @@ a#git strong{
     }
 
     main{
-        margin: 40% 0;
+        margin: 30% 0;
         
     }
    
