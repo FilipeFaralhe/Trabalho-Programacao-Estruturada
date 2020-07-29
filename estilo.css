@@ -16,6 +16,7 @@ header {
     background-color: rgb(12, 12, 12, 0.6);
     padding: 10px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 div#sobre{
@@ -153,7 +154,7 @@ a#git strong{
 
 @media(max-width: 768px) {
     div#sobre {
-        width: 50vw;
+        width: 50%;
     }
     
     div#central {
