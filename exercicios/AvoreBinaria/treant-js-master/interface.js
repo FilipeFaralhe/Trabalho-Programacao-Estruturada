@@ -3,8 +3,9 @@ function buttonAdd(){
         let x = document.getElementById("entrada").value;
         document.getElementById("entrada").value = "";
         document.getElementById("avisos").innerHTML = "Valor adicionado: " + x;
-        tree.inserirAll(x);
+        tree.inserir(parseInt(x));
         tree.print();
+        console.log(typeof(x));
     }
     document.getElementById("entrada").focus();
 }
@@ -25,19 +26,27 @@ function buttonMax() {
 }
 
 function buttonSearch() {
-    if(document.getElementById("entrada").value != ""){
-        let value = document.getElementById("entrada").value;
-        let search = tree.search(value);
-        if(search == true){
-            document.getElementById("avisos").innerHTML = "Valor encontrado"
-        } else {
-            document.getElementById("avisos").innerHTML = "Valor não encontrado"
-        }
+    let value = document.getElementById("entrada").value;
+    let search = tree.search(value);
+    console.log(search);
+    console.log(value)
+    if( value == "" || value == null) {
+        document.getElementById("avisos").innerHTML = "Preencha o campo"
+    }else if(search == true){
+        document.getElementById("avisos").innerHTML = "Valor encontrado"
+    } else {
+        document.getElementById("avisos").innerHTML = "Valor não encontrado"
     }
 }
 
-function buttonEquilibra() {
-    tree.Equilibra();
-    tree.print();
-    
+function Buttonbalancear(){
+    let raiz = tree.getRoot();
+
+    if(raiz == "" || raiz == null){
+        document.getElementById("avisos").innerHTML = "Árvore vazia";
+    } else {
+        tree.balance();
+        tree.print();
+        document.getElementById("avisos").innerHTML = "Árvore equilibrada"
+    }
 }

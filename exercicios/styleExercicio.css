@@ -2,6 +2,7 @@
     margin: 0;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
+    box-sizing: border-box;
 }
 
 body{
@@ -27,19 +28,23 @@ a#home{
     text-decoration: none;
 }
 
+main#arvore {
+    margin: 15% 0;
+}
+
 main {
     margin: 10% 0;
 }
 
 div#central{
     height: 50%;
-    width: 50%;
+    width: 65%;
     margin: auto;
     background-color: rgb(232, 232, 233, 0.6);
     border-radius: 8px;
     text-align: center;
     box-shadow: -30px 30px 20px rgba(0,0,0,0.3);
-    overflow: auto;
+    overflow: hidden;
 }
 
 #title{
@@ -58,7 +63,7 @@ div#acoes{
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12;
+    font-size: 12px;
     margin-bottom: 3%;
 }
 
@@ -93,33 +98,75 @@ a#push span:after{
     content: "";
     background-size: cover;
     background-image: url("../img/add.png");
-    width: 50%;
-    height: 60%;
+    width: 60%;
+    height: 75%;
 }
 
 a#pop span:after{
     content: "";
     background-size: cover;
     background-image: url("../img/remover.png");
-    width: 50%;
-    height: 60%;
+    width: 60%;
+    height: 75%;
 }
 
 a#peek span:after{
     content: "";
     background-size: cover;
     background-image: url("../img/ultimo.png");
-    width: 50%;
-    height: 60%;
+    width: 60%;
+    height: 75%;
 }
 
 a#estaVazia span:after{
     content: "";
     background-size: cover;
     background-image: url("../img/vazio.png");
-    width: 50%;
-    height: 60%;
+    width: 60%;
+    height: 75%;
 }
+
+a#limpar span:after{
+    content: "";
+    background-size: cover;
+    background-image: url("../img/clear.png");
+    width: 60%;
+    height: 75%;
+}
+
+a#maximo span:after{
+    content: "";
+    background-size: cover;
+    background-image: url("../img/max.png");
+    width: 60%;
+    height: 75%;
+}
+
+a#minimo span:after{
+    content: "";
+    background-size: cover;
+    background-image: url("../img/min.png");
+    width: 60%;
+    height: 75%;
+}
+
+a#procurar span:after{
+    content: "";
+    background-size: cover;
+    background-image: url("../img/search.png");
+    width: 60%;
+    height: 75%;
+}
+
+a#equilibra span:after{
+    content: "";
+    background-size: cover;
+    background-image: url("../img/balance.png");
+    width: 60%;
+    height: 75%;
+}
+
+
 
 .item:hover{
     background-color: rgb(12, 12, 12, 0.8);
@@ -240,12 +287,8 @@ a#git strong{
     main{
         margin: 40% 0;
         
-    }
-   
-    
+    } 
 }
-
-
 
 @media(max-width: 1367) {
     .item{

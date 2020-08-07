@@ -1,70 +1,40 @@
+let array = [];
+
 class Node {
     constructor(key){
         this.key = key;
         this.left = null;
         this.right = null;
+        array.push(key);
     }
 }
 
 class BinarySearchTree {
     constructor(){
         this.root = null
-        this.Array = [];
     }
 
-    vazio(){
-        this.Array = [];
-    }
-
-    inserirAll(key) {
-        if (this.root == null ) {
-            this.root = new Node(key);
-            this.Array.push(key);
-        } else {
-            this.inserirNodeAll(this.root, key);
-        }
-    }
-    
-    inserirNodeAll(node, key) {
-        if (parseInt(key, 10) < parseInt(node.key, 10)){
-            if (node.left == null) {
-                node.left = new Node(key);
-                this.Array.push(key);
-            } else {
-                this.inserirNodeAll(node.left, key);
-            } 
-        }
-        if (parseInt(key, 10) > parseInt(node.key, 10)){
-            if (node.right == null) {
-                node.right = new Node(key);
-                this.Array.push(key);
-            } else {
-                this.inserirNodeAll(node.right, key);
-            } 
-        }
-    }
-
-    inserirAr(key) {
+    inserir(key) {
         if (this.root == null ) {
             this.root = new Node(key);
         } else {
-            this.inserirNodeAr(this.root, key);
+            this.inserirNode(this.root, key);
         }
     }
     
-    inserirNodeAr(node, key) {
+    inserirNode(node, key) {
         if (parseInt(key, 10) < parseInt(node.key, 10)){
             if (node.left == null) {
                 node.left = new Node(key);
             } else {
-                this.inserirNodeAr(node.left, key);
+                this.inserirNode(node.left, key);
             } 
         }
         if (parseInt(key, 10) > parseInt(node.key, 10)){
             if (node.right == null) {
                 node.right = new Node(key);
             } else {
-                this.inserirNodeAr(node.right, key);
+                this.inserirNode(node.right, key);
             } 
         }
     }
@@ -75,6 +45,7 @@ class BinarySearchTree {
 
     getClear() {
         this.root = null;
+        array = [];
     }
 
     getMax() {
@@ -96,7 +67,8 @@ class BinarySearchTree {
         }
         return getKey;
     }
-        
+    
+    
     search(key){
         let current = this.root;
         //encontrar elemento no root
@@ -105,20 +77,6 @@ class BinarySearchTree {
         }
        
         do{  
-
-            //encontrar elemento no left
-            if(key < current.key){
-                current = current.left
-                if(current == null){
-                    return false;
-                }
-                if (key == current.key){
-                    return true;
-                } else if (current.right == null && current.left == null || current.key == null) {
-                    return false;
-                }
-            }
-
             //encontrar elemento no right
             if (key > current.key) {
                 current = current.right
@@ -132,108 +90,87 @@ class BinarySearchTree {
                     return false;
                 }
             }
+            //encontrar elemento no left
+            if(key < current.key){
+                current = current.left
+                if(current == null){
+                    return false;
+                }
+                if (current.key == key){
+                    return true;
+                } else if (current.right == null && current.left == null || current.key == null) {
+                    return false;
+                }
+            }
             
         } while(current.right != null || current.left != null);
     }
 
-    Equilibra(){
-        let arrayAux1 = [];
-        let arrayAux2 = [];
+    balance(){
+        let aux = 0;
+        let val = Math.round(array.length / 2);
+        let valorMeio;
+        let valorMeioDireita, valMeiaEsquerda;
 
-        function sortfunction(a, b){
-            return (a - b);
-          }
-        
-        this.Array.sort(sortfunction); // crescente
+        let balanceioD = [];
+        let balanceioE = [];
+
+        for(let i = 0; i < array.length; i++){     
+            if(i == val){
+                valorMeio = array[i - 1];
+            }
+            if( array[i] > valorMeio){
+                balanceioD.push(array[i]);
+            } else {
+                balanceioE.push(array[i]);
+            }
+        }
+
         this.getClear();
-        let tamanho = this.Array.length / 2
-        let recebe = Math.round(tamanho - 1);  
-        
-        this.inserirAr(this.Array[recebe]);
-        this.Array.splice(recebe, 1);
-        
-        for(let i = 0; i < this.Array.length; i++){
-            if(i < recebe){
-                arrayAux1.push(this.Array[i]);
-            } else {
-                arrayAux2.push(this.Array[i]);
+        this.inserir(valorMeio);
+
+        // Direita
+        let valDireita = Math.round(balanceioD.length / 2);
+        for(let j = 0; j < balanceioD.length; j++){
+            if(valDireita == j){
+                valorMeioDireita = balanceioD[j - 1];
+                this.inserir(valorMeioDireita);                
             }
+            for(let k = 0; k < balanceioD.length; k++){
+                if(balanceioD[k] < valorMeioDireita){
+                    this.inserir(balanceioD[k]);
+                    aux = 1;
+                }
+                if(aux == 1){
+                    if(balanceioD[k] > valorMeioDireita){
+                        this.inserir(balanceioD[k]);
+                    }
+                }
+            }     
         }
 
-        // console.log(arrayAux1);
-        // console.log(arrayAux2);
+        // Esquerda
+        let valEsquerda = Math.round(balanceioE.length / 2);
+        for(let l = 0; l < balanceioE.length; l++){
+            if(valEsquerda == l){
+                valMeiaEsquerda = balanceioE[l - 1];
+                this.inserir(valMeiaEsquerda);
+            }
 
-        // let recebe1;
-        // let tamanho1;
-        
-        // while(arrayAux1.length != 0){
-        //     tamanho1 = arrayAux1.length / 2
-        //     if(tamanho1 % 2 == 0){
-        //         recebe1 = Math.round(tamanho1); 
-        //     } else {
-        //         recebe1 = Math.round(tamanho1 - 1); 
-        //     }
-        //     console.log(arrayAux1);
-        //     console.log(recebe1);
-        //     if(arrayAux1.length > 1){
-        //         this.inserirAr(arrayAux1[recebe1]);
-        //         arrayAux1.splice(recebe1, 1);
-        //         arrayAux1.sort(sortfunction);
-        //     } else {
-        //         this.inserirAr(arrayAux1[0]);
-        //         arrayAux1.splice(0, 1);
-        //     }
-        // }
-
-        // let recebe2;
-        // let tamanho2;
-        
-        // while(arrayAux2.length != 0){
-        //     tamanho2 = arrayAux1.length / 2
-        //     if(tamanho2 % 2 == 0){
-        //         recebe2 = Math.round(tamanho2); 
-        //     } else {
-        //         recebe2 = Math.round(tamanho2 - 1); 
-        //     }
-        //     console.log(arrayAux2);
-        //     console.log(recebe2);
-        //     if(arrayAux2.length > 1){
-        //         this.inserirAr(arrayAux2[recebe2]);
-        //         arrayAux2.splice(recebe2, 1);
-        //         arrayAux2.sort(sortfunction);
-        //     } else {
-        //         this.inserirAr(arrayAux2[0]);
-        //         arrayAux2.splice(0, 1);
-        //     }
-        // }
-
-        let tamanho1 = arrayAux1.length / 2
-        let recebe1 = Math.round(tamanho1 - 1); 
-        
-        while(arrayAux1.length != 0){
-            if(arrayAux1.length > 1){
-                this.inserirAr(arrayAux1[recebe1]);
-                arrayAux1.splice(recebe1, 1);
-                arrayAux1.sort(sortfunction);
-            } else {
-                this.inserirAr(arrayAux1[0]);
-                arrayAux1.splice(0, 1);
+            for(let m = 0; m < balanceioE.length; m++){
+                if(balanceioE[m] < valMeiaEsquerda){
+                    this.inserir(balanceioE[m]);
+                    aux = 1;
+                }
+                if(aux == 1){
+                    if(balanceioE[m] > valMeiaEsquerda){
+                        this.inserir(balanceioE[m]);
+                    }
+                }
             }
         }
-
-        let tamanho2 = arrayAux2.length / 2
-        let recebe2 = Math.round(tamanho2 - 1); 
         
-        while(arrayAux2.length != 0){
-            if(arrayAux2.length > 1){
-                this.inserirAr(arrayAux2[recebe2]);
-                arrayAux2.splice(recebe2, 1);
-                arrayAux2.sort(sortfunction);
-            } else {
-                this.inserirAr(arrayAux2[0]);
-                arrayAux2.splice(0, 1);
-            }
-        }
+        this.print();
     }
 
     getNodeJson(node){
@@ -271,7 +208,7 @@ class BinarySearchTree {
         if(this.root != null){
             obj.nodeStructure = this.getNodeJson(this.root);
         } else {
-            obj.nodeStructure = {'text':{'name':'Árvore vazia!'}};
+            
         }
 
         return obj;
@@ -293,5 +230,6 @@ class BinarySearchTree {
 
 const tree = new BinarySearchTree()
 tree.print();
+console.log(tree);
 
 
