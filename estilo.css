@@ -186,8 +186,11 @@ a#git strong{
     }
 
     main{
-        margin: 30% 0;
-        
+        margin: 30% 0;  
+    }
+
+    #video-container {
+        margin: 0.8rem;
     }
    
     
