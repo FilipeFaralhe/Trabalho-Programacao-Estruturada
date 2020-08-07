@@ -38,6 +38,17 @@ main{
     
 }
 
+#video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#video {
+    box-shadow: -30px 30px 20px rgba(0,0,0,0.3);
+    border-radius: 0.8rem;
+}
+
 div#central{
     margin: auto;
     width: 50vw;
